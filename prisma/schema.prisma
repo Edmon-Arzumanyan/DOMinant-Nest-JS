@@ -8,8 +8,18 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String?
-  createdAt DateTime @default(now())
+  id             Int      @id @default(autoincrement())
+  first_name     String
+  last_name      String
+  date_of_birth  DateTime
+  role           Int      @default(2)
+  phone          String
+  description    String?
+  email          String   @unique
+  encrypted_password String
+  reset_password_token String?
+  reset_password_sent_at DateTime?
+  remember_created_at   DateTime?
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
 }

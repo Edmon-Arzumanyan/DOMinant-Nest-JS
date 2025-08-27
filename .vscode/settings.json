@@ -11,5 +11,6 @@
   "prettier.useTabs": false,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
-  "prettier.semi": true
+  "prettier.semi": true,
+  "cSpell.words": ["autoincrement"]
 }
