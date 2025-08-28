@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Injectable,
   NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { Prisma, User } from '@prisma/client';
@@ -91,5 +92,11 @@ export class UsersService {
       throw new NotFoundException(`User with ID ${id} not found`);
 
     return this.prisma.user.delete({ where: { id } });
+  }
+
+  async findByEmail(email: string) {
+    const user = await this.prisma.user.findUnique({ where: { email } });
+    if (!user) throw new UnauthorizedException('Invalid credentials');
+    return user;
   }
 }
