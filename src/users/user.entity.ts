@@ -4,8 +4,8 @@ import { Entity, PrimaryGeneratedColumn, Column, Index } from 'typeorm';
 
 export enum UserRole {
   SuperAdmin = 0,
-  Admin = 1,
-  User = 2, // default in Rails
+  Teacher = 1,
+  User = 2,
 }
 
 @Entity({ name: 'users' })
