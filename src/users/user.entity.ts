@@ -1,5 +1,3 @@
-// src/users/user.entity.ts
-
 import { Entity, PrimaryGeneratedColumn, Column, Index } from 'typeorm';
 
 export enum UserRole {
