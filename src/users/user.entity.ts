@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, Index } from 'typeorm';
+import { GroupUser } from 'src/groups/group-user.entity';
+import { Group } from 'src/groups/group.entity';
+import { Entity, PrimaryGeneratedColumn, Column, Index, OneToMany, ManyToMany } from 'typeorm';
 
 export enum UserRole {
   SuperAdmin = 0,
@@ -91,4 +93,7 @@ export class User {
     nullable: false,
   })
   updatedAt: Date;
+
+  @OneToMany(() => GroupUser, (groupUser) => groupUser.user)
+  groupUsers: GroupUser[];
 }

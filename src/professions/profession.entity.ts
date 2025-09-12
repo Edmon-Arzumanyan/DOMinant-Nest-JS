@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-// import { Group } from '../groups/group.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
+import { Group } from '../groups/group.entity';
 
 @Entity()
 export class Profession {
@@ -15,9 +15,8 @@ export class Profession {
   @Column({ type: 'json', default: {} })
   stack: any;
 
-  //   // Assuming relation to groups
-  //   @OneToMany(() => Group, (group) => group.profession)
-  //   groups: Group[];
+  @ManyToMany(() => Group, (group) => group.professions)
+  groups: Group[];
 
   @Column({ nullable: true })
   logoImageUrl: string;
